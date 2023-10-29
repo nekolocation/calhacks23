@@ -8,47 +8,6 @@
 let map: google.maps.Map;
 
 
-
-class CenterControl {
-  private map_: google.maps.Map;
-  private center_: google.maps.LatLng;
-  constructor(
-    controlDiv: HTMLElement,
-    map: google.maps.Map,
-    center: google.maps.LatLngLiteral
-  ) {
-    this.map_ = map;
-    // Set the center property upon construction
-    this.center_ = new google.maps.LatLng(center);
-    controlDiv.style.clear = "both";
-
-    // Set CSS for the control border
-    const goCenterUI = document.createElement("button");
-
-    goCenterUI.id = "goCenterUI";
-    goCenterUI.title = "Click to recenter the map";
-    controlDiv.appendChild(goCenterUI);
-
-    // Set CSS for the control interior
-    const goCenterText = document.createElement("div");
-
-    goCenterText.id = "goCenterText";
-    goCenterText.innerHTML = "Center Map to Campus";
-    goCenterUI.appendChild(goCenterText);
-
-
-    goCenterUI.addEventListener("click", () => {
-      const currentCenter = this.center_;
-
-      this.map_.setCenter(currentCenter);
-    });
-  }
-}
-
-
-
-
-
 async function initMap(): Promise<void> {
 
   const { Map } = await google.maps.importLibrary("maps") as google.maps.MapsLibrary;
@@ -67,15 +26,56 @@ async function initMap(): Promise<void> {
       strictBounds: true
     },
     streetViewControl: false,
+    mapTypeControl: false,
+    fullscreenControl: false,
+    zoomControlOptions: {
+      position: google.maps.ControlPosition.TOP_RIGHT,
+    }
   });
 
   const berkeley: google.maps.LatLngLiteral = { lat: 37.8720, lng: -122.2595 };
-  const centerControlDiv = document.createElement("div");
-  const control = new CenterControl(centerControlDiv, map, berkeley);
 
-  // @ts-ignore
-  centerControlDiv.index = 1;
-  centerControlDiv.style.paddingTop = "10px";
+  
+function createCenterControl(map) {
+  const controlButton = document.createElement('button');
+
+  // Set CSS for the control.
+  controlButton.style.backgroundColor = '#fff';
+  controlButton.style.border = '2px solid #fff';
+  controlButton.style.borderRadius = '3px';
+  controlButton.style.boxShadow = '0 2px 6px rgba(0,0,0,.3)';
+  controlButton.style.color = 'rgb(25,25,25)';
+  controlButton.style.cursor = 'pointer';
+  controlButton.style.fontFamily = 'Roboto,Arial,sans-serif';
+  controlButton.style.fontSize = '16px';
+  controlButton.style.lineHeight = '38px';
+  controlButton.style.margin = '8px 0 22px';
+
+
+  // controlButton.style.marginTop = '700px';
+
+  controlButton.style.padding = '0 5px';
+  controlButton.style.textAlign = 'center';
+
+  controlButton.textContent = 'Center Map to Campus';
+  controlButton.title = 'Click to recenter the map';
+  controlButton.type = 'button';
+
+  controlButton.addEventListener('click', () => {
+    map.setCenter(berkeley);
+  });
+
+  return controlButton;
+}
+
+
+  // Create the DIV to hold the control.
+  const centerControlDiv = document.createElement('div');
+  // Create the control.
+  const centerControl = createCenterControl(map);
+  // Append the control to the DIV.
+  centerControlDiv.appendChild(centerControl);
+
   map.controls[google.maps.ControlPosition.TOP_CENTER].push(centerControlDiv);
 
 
