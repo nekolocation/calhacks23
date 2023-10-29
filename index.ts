@@ -158,12 +158,27 @@ function createCenterControl(map) {
     { lat: 37.8766022427145, lng: -122.256135178904, title: "Foothill Student Housing Blue Light 2" },
     { lat: 37.8758689029305, lng: -122.257093112682, title: "Upper Parking Structure Blue Light" },
     { lat: 37.8734157253284, lng: -122.260505907456, title: "East Asian Libary Blue Light" },
+    { lat: 37.86417424736154, lng: -122.24912641342158, title: "Clark Kerr Blue Light"},
+    { lat:37.86717200903644, lng:-122.2563850792815, title: "Crossroads Blue Light 1"},
+    { lat:37.86648046270518, lng:-122.2557879431738, title: "Crossroads Blue Light 2"},
+    { lat:37.86639291585703, lng:-122.25630375123609, title: "Casa Bonita Blue Light"},
+    { lat:37.86720070837783, lng:-122.25736023751256, title: "Channing-Bowditch Apartments Blue Light"},
+    { lat:37.86703300884144, lng:-122.25738528236063, title: "Martinez Commons Blue Light"}
   ];
 
-  for (const data of stationMarkerData) {
-    addMarker(data.lat, data.lng, data.title, 'assets/img/blue station icon.png');
-  }
 
+  const telephoneMarkerData = [
+    { lat: 37.86650050646096, lng: -122.24331452858542, title: "Panoramic Place Emergenecy Telephone"},
+    { lat: 37.86526687866486, lng: -122.24973795705819, title: "Clark Kerr Northwest Parking Lot Emergency Telephone"},
+    { lat: 37.863204216714784, lng: -122.24975913201148, title: "Clark Kerr Southwest Parking Lot Emergency Telephone"},
+    { lat: 37.86753125295874, lng: -122.264630046999, title: "Tang Center Parking Lot Emergency Telephone"},
+    { lat: 37.86577314173154, lng: -122.2669731098094, title: "Manville Hall Emergency Telephone"},
+    { lat:37.86782967627295, lng:-122.25492783439715, title: "Unit 1 Emergency Telephone 1"},
+    { lat:37.867927362998266, lng:-122.25551948360884, title: "Unit 1 Emergency Telephone 2"},
+    { lat:37.867872688826616, lng:-122.255710225292, title: "Unit 1 Emergency Telephone 2"},
+    { lat:37.866211236908235, lng:-122.25462107291219, title: "Unit 2 Emergency Telephone 1"},
+  { lat:37.86602777322526, lng:-122.25440688950806, title: "Unit 2 Emergency Telephone 2"},
+  ]
 
   const policeMarkerData = [
     // { coord },
@@ -171,7 +186,21 @@ function createCenterControl(map) {
     { lat: 37.87025582866991, lng: -122.27312636787676, title: "Berkeley Police Department" }
   ];
 
+  const medicalMarkerData = [
+    { lat: 37.86764135880804, lng: -122.26428672425573, title: "Tang Center" },
+  ]
 
+  // marks all blue lights
+  for (const data of stationMarkerData) {
+    addMarker(data.lat, data.lng, data.title, 'assets/img/blue station icon.png');
+  }
+
+  // marks all emergency telephones
+  for (const data of telephoneMarkerData) {
+    addTelephoneMarker(data.lat, data.lng, data.title, 'assets/img/emergency-phone.png');
+  }
+
+  // marks all police stations
   for (const data of policeMarkerData) {
     addMarker(data.lat, data.lng, data.title, 'assets/img/police hat.png');
   }
@@ -184,6 +213,15 @@ function createCenterControl(map) {
       map: map,  // Adding the marker to the map
       title: title,
       icon: { url: imgpath, scaledSize: new google.maps.Size(55, 55) }
+    });
+  }
+
+  function addTelephoneMarker(lat, lng, title, imgpath) {
+    const marker = new google.maps.Marker({
+      position: { lat, lng },
+      map: map,  // Adding the marker to the map
+      title: title,
+      icon: { url: imgpath, scaledSize: new google.maps.Size(35, 35) }
     });
   }
 }
