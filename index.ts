@@ -198,7 +198,7 @@ function createCenterControl(map) {
 
   // marks all emergency telephones
   for (const data of telephoneMarkerData) {
-    addTelephoneMarker(data.lat, data.lng, data.title, 'assets/img/emergency-phone.png');
+    addSmallerMarker(data.lat, data.lng, data.title, 'assets/img/emergency-phone.png');
   }
 
   // marks all police stations
@@ -206,6 +206,10 @@ function createCenterControl(map) {
     addMarker(data.lat, data.lng, data.title, 'assets/img/police hat.png');
   }
 
+  // marks all medical places
+  for (const data of medicalMarkerData) {
+    addSmallerMarker(data.lat, data.lng, data.title, 'assets/img/hospital-icon.png');
+  }
 
   // Example marker code, remove or comment out similar code
   function addMarker(lat, lng, title, imgpath) {
@@ -217,7 +221,7 @@ function createCenterControl(map) {
     });
   }
 
-  function addTelephoneMarker(lat, lng, title, imgpath) {
+  function addSmallerMarker(lat, lng, title, imgpath) {
     const marker = new google.maps.Marker({
       position: { lat, lng },
       map: map,  // Adding the marker to the map
