@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "module": "esnext",
+    "target": "esnext",
+    "strict": true,
+    "noImplicitAny": false,
+    "lib": [
+      "esnext",
+      "es6",
+      "dom",
+      "dom.iterable", "ES2021"
+    ],
+    "forceConsistentCasingInFileNames": true,
+    "allowSyntheticDefaultImports": true,
+    "moduleResolution": "Node",
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "preserve"
+  },
+  "include": ["./**/*"],
+  "exclude": ["./_generated"]
+}
