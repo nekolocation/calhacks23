@@ -64,15 +64,16 @@ async function initMap(): Promise<void> {
   }
 
 
-  // const policeMarkerData = [
-  //   // { coord },
-  //   { lat: 37.87020572, lng: -122.2594291, title: "Sathers Blue Light" },
-  //   { lat: 37.87022691, lng: -122.2620718, title: "Frank Schlessinger Way Blue Light" }
-  // ];
+  const policeMarkerData = [
+    // { coord },
+    { lat: 37.86924194730867, lng: -122.25863946011555, title: "UC Police Department" },
+    { lat: 37.87025582866991, lng: -122.27312636787676, title: "Berkeley Police Department" }
+  ];
 
-  // for (const data of policeMarkerData) {
-  //   addMarker(data.lat, data.lng, data.title, 'assets/img/blue station icon.png');
-  // }
+
+  for (const data of policeMarkerData) {
+    addMarker(data.lat, data.lng, data.title, 'assets/img/police hat.png');
+  }
 
 
   // Example marker code, remove or comment out similar code
@@ -81,7 +82,7 @@ async function initMap(): Promise<void> {
       position: { lat, lng },
       map: map,  // Adding the marker to the map
       title: title,
-      icon: { url: imgpath, scaledSize: new google.maps.Size(26, 63) }
+      icon: { url: imgpath, scaledSize: new google.maps.Size(55, 55) }
     });
   }
 }
