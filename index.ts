@@ -9,6 +9,45 @@ let map: google.maps.Map;
 
 
 
+class CenterControl {
+  private map_: google.maps.Map;
+  private center_: google.maps.LatLng;
+  constructor(
+    controlDiv: HTMLElement,
+    map: google.maps.Map,
+    center: google.maps.LatLngLiteral
+  ) {
+    this.map_ = map;
+    // Set the center property upon construction
+    this.center_ = new google.maps.LatLng(center);
+    controlDiv.style.clear = "both";
+
+    // Set CSS for the control border
+    const goCenterUI = document.createElement("button");
+
+    goCenterUI.id = "goCenterUI";
+    goCenterUI.title = "Click to recenter the map";
+    controlDiv.appendChild(goCenterUI);
+
+    // Set CSS for the control interior
+    const goCenterText = document.createElement("div");
+
+    goCenterText.id = "goCenterText";
+    goCenterText.innerHTML = "Center Map to Campus";
+    goCenterUI.appendChild(goCenterText);
+
+
+    goCenterUI.addEventListener("click", () => {
+      const currentCenter = this.center_;
+
+      this.map_.setCenter(currentCenter);
+    });
+  }
+}
+
+
+
+
 
 async function initMap(): Promise<void> {
 
@@ -26,11 +65,18 @@ async function initMap(): Promise<void> {
     restriction: {
       latLngBounds: bayAreaBounds,
       strictBounds: true
-    }
+    },
+    streetViewControl: false,
   });
 
-  // let generateCoord = useAction(api.myFunctions.getCoord)
-  // let coord = await generateCoord()
+  const berkeley: google.maps.LatLngLiteral = { lat: 37.8720, lng: -122.2595 };
+  const centerControlDiv = document.createElement("div");
+  const control = new CenterControl(centerControlDiv, map, berkeley);
+
+  // @ts-ignore
+  centerControlDiv.index = 1;
+  centerControlDiv.style.paddingTop = "10px";
+  map.controls[google.maps.ControlPosition.TOP_CENTER].push(centerControlDiv);
 
 
   // Create and add multiple markers in a loop
@@ -86,8 +132,6 @@ async function initMap(): Promise<void> {
     });
   }
 }
-
-
 
 
 initMap();
