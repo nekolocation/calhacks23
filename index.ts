@@ -140,6 +140,7 @@ function createCenterControl(map) {
     { lat: 37.87020572, lng: -122.2594291, title: "Sathers Blue Light" },
     { lat: 37.87022691, lng: -122.2620718, title: "Frank Schlessinger Way Blue Light" },
     { lat: 37.8725741, lng: -122.2649495, title: "Li Ka Shing Blue Street Light Back" },
+    { lat: 37.8726264828075, lng: -122.26547418825, title: "Li Ka Shing Blue Street Light Front" },
     { lat: 37.87350262, lng: -122.257392829701, title: "Evans Hall Blue Light"},
     { lat: 37.8736091, lng: -122.255941239326, title: "University Dr Blue Light" },
     { lat: 37.87414331568, lng: -122.256761980576, title: "Donner Lab Blue Light" },
