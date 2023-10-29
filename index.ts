@@ -137,7 +137,6 @@ function createCenterControl(map) {
   // Create and add multiple markers in a loop
   const stationMarkerData = [
     // { coord },
-    { lat: 37.87020572, lng: -122.2594291, title: "Sathers Blue Light" },
     { lat: 37.87022691, lng: -122.2620718, title: "Frank Schlessinger Way Blue Light" },
     { lat: 37.8725741, lng: -122.2649495, title: "Li Ka Shing Blue Street Light Back" },
     { lat: 37.8726264828075, lng: -122.26547418825, title: "Li Ka Shing Blue Street Light Front" },
@@ -164,7 +163,8 @@ function createCenterControl(map) {
     { lat:37.86648046270518, lng:-122.2557879431738, title: "Crossroads Blue Light 2"},
     { lat:37.86639291585703, lng:-122.25630375123609, title: "Casa Bonita Blue Light"},
     { lat:37.86720070837783, lng:-122.25736023751256, title: "Channing-Bowditch Apartments Blue Light"},
-    { lat:37.86703300884144, lng:-122.25738528236063, title: "Martinez Commons Blue Light"}
+    { lat:37.86703300884144, lng:-122.25738528236063, title: "Martinez Commons Blue Light"},
+    { lat: 37.87020572, lng: -122.2594291, title: "Sathers Blue Light" }
   ];
 
 
