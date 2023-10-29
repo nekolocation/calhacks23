@@ -8,6 +8,61 @@
 let map: google.maps.Map;
 
 
+const mapStyling = [
+  {
+    featureType: "poi.business",
+    elementType: "labels.text",
+    stylers: [{ visibility: "off" }],
+  },
+  {
+    featureType: "poi.business",
+    elementType: "labels.icon",
+    stylers: [{ visibility: "off" }],
+  },
+  {
+    featureType: "poi.school",
+    elementType: "labels.text",
+    stylers: [{ visibility: "on" }],
+  },
+  {
+    featureType: "poi.school",
+    elementType: "labels.icon",
+    stylers: [{ visibility: "on" }],
+  },
+  {
+    featureType: "poi.park",
+    elementType: "labels.text",
+    stylers: [{ visibility: "on" }],
+  },
+  {
+    featureType: "poi.park",
+    elementType: "labels.icon",
+    stylers: [{ visibility: "on" }],
+  },
+  {
+    featureType: "poi.government",
+    elementType: "labels.text",
+    stylers: [{ visibility: "on" }],
+  },
+  {
+    featureType: "poi.government",
+    elementType: "labels.icon",
+    stylers: [{ visibility: "on" }],
+  },
+  {
+    featureType: "poi.medical",
+    elementType: "labels.text",
+    stylers: [{ visibility: "on" }],
+  },
+  {
+    featureType: "poi.medical",
+    elementType: "labels.icon",
+    stylers: [{ visibility: "on" }],
+  },
+  
+];
+
+
 async function initMap(): Promise<void> {
 
   const { Map } = await google.maps.importLibrary("maps") as google.maps.MapsLibrary;
@@ -30,7 +85,8 @@ async function initMap(): Promise<void> {
     fullscreenControl: false,
     zoomControlOptions: {
       position: google.maps.ControlPosition.TOP_RIGHT,
-    }
+    },
+    styles: mapStyling,
   });
 
   const berkeley: google.maps.LatLngLiteral = { lat: 37.8720, lng: -122.2595 };
