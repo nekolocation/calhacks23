@@ -8,6 +8,7 @@
   <head>
     <title>Oski Rescue</title>
     <meta content="Oski Rescue" property="og:title" />
+
     <meta name="description" content="Emergency info, at your fingertips."/>
     <meta name="theme-color" content="#559CEF"/>
     <link rel="icon" href="assets/img/blorb.png">
@@ -15,15 +16,24 @@
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
 
     <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karla|Kanit">
+
     <script type="module" src="./index.ts"></script>
   </head>
 
   <body>
-    <div id="map"></div>
-
-    <a class="callButton" href="tel:5106423333"><div id="emergencyCall"><p>Call UCPD</p></div></a>
-    <!-- prettier-ignore -->
-    <script>(g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})
-        ({key: "AIzaSyCZpFThh0UThCVKne9oMSkLOUT1oTp1eZc", v: "weekly"});</script>
+    <div id="container">
+      <div id="head-bar">
+        <div id="logo-text">Oski Rescue</div> <img src="assets/img/Paw.png" height="35" alt="Paw icon">
+      </div>
+  
+      <div id="map"></div>
+  
+      <a class="callButton" href="tel:5106423333"><div id="emergencyCall">Call UCPD</div></a>
+      <!-- prettier-ignore -->
+      <script>(g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})
+          ({key: "AIzaSyCZpFThh0UThCVKne9oMSkLOUT1oTp1eZc", v: "weekly"});</script>
+    </div>
+    
   </body>
 </html>

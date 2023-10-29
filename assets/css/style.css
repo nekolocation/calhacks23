@@ -7,8 +7,66 @@
  * Always set the map height explicitly to define the size of the div element
  * that contains the map. 
  */
- #map {
+
+ :root{
+  --DarkBlue: #0d4b7b;
+  --LightBlue: #3498db;
+ }
+
+
+#container {
+  display: flex;
+  flex-direction: column;
+
+  position: relative;
   height: 100%;
+  width: 100%;
+}
+
+ #head-bar {
+    display: flex;
+    flex-direction: row;
+    top: 0;
+    left: 0;
+   
+    box-sizing: border-box;
+    padding-left: 22px;
+    padding-top: 22px;
+
+    height: 60px;
+    width: 100%;
+    background-color: var(--DarkBlue);
+
+    justify-content: left;
+    align-items: center;
+    text-align: center;
+ }
+
+ #logo-text {
+  display: flex;
+
+  font-family: 'Kanit', serif;
+  letter-spacing:3px;
+  color: white;
+  font-size: 33px;
+  text-shadow: 3px 3px 3px black;
+ }
+ 
+#head-bar img {
+  margin-left: 10px;
+}
+
+
+
+ #map {
+  box-sizing: border-box;
+
+  position: relative;
+  height: 100%;
+  
+  border: 24px solid var(--DarkBlue);
+  /* border-radius: 10px; */
+
 }
 
 /* 
@@ -21,25 +79,37 @@ body {
   padding: 0;
 }
 
-.callButton {
-    display: inline-block;
-    text-decoration: none;
-    padding: 10px 20px;
-    background-color: #3498db;
-    color: #fff;
-    border-radius: 5px;
-    text-align: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-}
 
-.callButton:hover {
+#emergencyCall:hover {
     background-color: #2576b5;
 }
 
 #emergencyCall {
-    margin: 0;
-}
+  box-sizing: border-box;
+  position: absolute;
+  
+  margin-left: 38px;
+  margin-bottom: 55px;
+  bottom: 0;
+  left: 0;
 
-p {
-    margin: 0;
+  font-family: 'Karla', serif;
+  font-weight: bolder;
+
+
+  text-decoration: none;
+  padding: 15px 38px;
+  background-color: var(--LightBlue);
+  color: #fff;
+  border-radius: 18px;
+  font-size: 30px;
+
+  border: 8px solid #2576b5;
+
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+
+
+  box-shadow: 7px 7px 6px rgba(0, 0, 0, 0.2);
 }
