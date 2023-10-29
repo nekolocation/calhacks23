@@ -8,50 +8,6 @@
 let map: google.maps.Map;
 
 
-<<<<<<< HEAD
-=======
-
-class CenterControl {
-  private map_: google.maps.Map;
-  private center_: google.maps.LatLng;
-  constructor(
-    controlDiv: HTMLElement,
-    map: google.maps.Map,
-    center: google.maps.LatLngLiteral
-  ) {
-    this.map_ = map;
-    // Set the center property upon construction
-    this.center_ = new google.maps.LatLng(center);
-    controlDiv.style.clear = "both";
-
-    // Set CSS for the control border
-    const goCenterUI = document.createElement("button");
-
-    goCenterUI.id = "goCenterUI";
-    goCenterUI.title = "Click to recenter the map";
-    controlDiv.appendChild(goCenterUI);
-
-    // Set CSS for the control interior
-    const goCenterText = document.createElement("div");
-
-    goCenterText.id = "goCenterText";
-    goCenterText.innerHTML = "Center Map to Campus";
-    goCenterUI.appendChild(goCenterText);
-
-
-    goCenterUI.addEventListener("click", () => {
-      const currentCenter = this.center_;
-
-      this.map_.setCenter(currentCenter);
-    });
-  }
-}
-
-
-
-
-
->>>>>>> a3faac8b247a6fed364b9fa8768e3c43240ce2f7
 async function initMap(): Promise<void> {
 
   const { Map } = await google.maps.importLibrary("maps") as google.maps.MapsLibrary;
@@ -70,7 +26,6 @@ async function initMap(): Promise<void> {
       strictBounds: true
     },
     streetViewControl: false,
-<<<<<<< HEAD
     mapTypeControl: false,
     fullscreenControl: false,
     zoomControlOptions: {
@@ -79,7 +34,6 @@ async function initMap(): Promise<void> {
   });
 
   const berkeley: google.maps.LatLngLiteral = { lat: 37.8720, lng: -122.2595 };
-
   
 function createCenterControl(map) {
   const controlButton = document.createElement('button');
@@ -121,17 +75,6 @@ function createCenterControl(map) {
   // Append the control to the DIV.
   centerControlDiv.appendChild(centerControl);
 
-=======
-  });
-
-  const berkeley: google.maps.LatLngLiteral = { lat: 37.8720, lng: -122.2595 };
-  const centerControlDiv = document.createElement("div");
-  const control = new CenterControl(centerControlDiv, map, berkeley);
-
-  // @ts-ignore
-  centerControlDiv.index = 1;
-  centerControlDiv.style.paddingTop = "10px";
->>>>>>> a3faac8b247a6fed364b9fa8768e3c43240ce2f7
   map.controls[google.maps.ControlPosition.TOP_CENTER].push(centerControlDiv);
 
 
